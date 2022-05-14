@@ -68,8 +68,8 @@
                         <label>Active Status <span class="text-danger">*</span></label>
                         <select name="civil_status" class="form-control" required>
                             <option value="" selected disabled></option>
-                            <option value="Active">Active</option>
-                            <option value="Inactive">Inactive</option>
+                            <option value="Active" {{ $data['profile']->civil_status == 'Active' ? 'selected' : '' }}>Active</option>
+                            <option value="Inactive" {{ $data['profile']->civil_status == 'Inactive' ? 'selected' : '' }}>Inactive</option>
                             {{-- <option value="Single" {{ $data['profile']->civil_status == 'Single' ? 'selected' : '' }}>Single</option>
                             <option value="Married" {{ $data['profile']->civil_status == 'Married' ? 'selected' : '' }}>Married</option>
                             <option value="Divorced" {{ $data['profile']->civil_status == 'Divorced' ? 'selected' : '' }}>Divorced</option>

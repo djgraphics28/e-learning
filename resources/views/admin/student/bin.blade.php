@@ -18,7 +18,7 @@
                         <th>Date of Birth</th>
                         <th>Address</th>
                         <th>Nationality</th>
-                        <th>Civil Status</th>
+                        <th>Active Status</th>
                         <th>Contact #</th>
                         <th></th>
                     </tr>
@@ -68,7 +68,7 @@
     function restore(id) {
         $.confirm({
                 animation: 'none',
-                theme: 'light', 
+                theme: 'light',
                 title: 'Restore',
                 content: 'This student account will be restored, continue?',
                 buttons: {
