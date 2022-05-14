@@ -17,7 +17,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Image</label>
-                                <img id="browseImg" src="{{ asset('public/storage/browse').'/'.$data['browse']->image }}" alt="img" class="img-cursor img-thumbnail">
+                                <img id="browseImg" src="{{ asset('storage/browse').'/'.$data['browse']->image }}" alt="img" class="img-cursor img-thumbnail">
                                 <input type="file" name="image" accept="image/*" hidden>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                 @foreach ($images as $item)
                                 <div class="col-lg-3">
                                     <div class="form-group">
-                                        <img src="{{ asset('public/storage/browse').'/'.$item }}" class="img-thumbnail">
+                                        <img src="{{ asset('storage/browse').'/'.$item }}" class="img-thumbnail">
                                     </div>
                                 </div>
                                 @endforeach
@@ -77,6 +77,12 @@
                             <div class="form-group">
                                 <label>Country <span class="text-danger">*</span></label>
                                 <select class="form-control" name="country" required>
+                                    <option value="">Choose</option>
+                                    @foreach($countries as $country)
+                                        <option value="{{ $country->nicename }}">{{ $country->nicename }}</option>
+                                    @endforeach
+                                </select>
+                                {{-- <select class="form-control" name="country" required>
                                     <option value="Brunei" {{ $data['browse']->country == 'Brunei' ? 'selected' : '' }}>Brunei</option>
                                     <option value="Burma (Myanmar)" {{ $data['browse']->country == 'Burma (Myanmar)' ? 'selected' : '' }}>Burma (Myanmar)</option>
                                     <option value="Cambodia" {{ $data['browse']->country == 'Cambodia' ? 'selected' : '' }}>Cambodia</option>
@@ -88,7 +94,7 @@
                                     <option value="Thailand" {{ $data['browse']->country == 'Thailand' ? 'selected' : '' }}>Thailand</option>
                                     <option value="Timor-Leste" {{ $data['browse']->country == 'Timor-Leste' ? 'selected' : '' }}>Timor-Leste</option>
                                     <option value="Vietnam" {{ $data['browse']->country == 'Vietnam' ? 'selected' : '' }}>Vietnam</option>
-                                </select>
+                                </select> --}}
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -148,7 +154,7 @@
         $('.img-cursor').on('click', function() {
             $('[name=image]').click();
         });
-        
+
         $('[name=image]').on('change', function() {
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -200,7 +206,7 @@
 
             $.confirm({
                 animation: 'none',
-                theme: 'light', 
+                theme: 'light',
                 title: 'Update',
                 content: 'This item will be updated, continue?',
                 buttons: {

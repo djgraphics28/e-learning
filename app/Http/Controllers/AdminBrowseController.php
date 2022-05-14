@@ -124,7 +124,12 @@ class AdminBrowseController extends Controller
             'user' => User::where('id', '!=', 1)->get()
         ];
 
-        return view('admin.browse.update', ['data' => $data]);
+        $countries = Country::all();
+
+        return view('admin.browse.update', [
+            'data' => $data,
+            'countries' => $countries,
+        ]);
     }
 
     public function updateSave(Request $request) {
