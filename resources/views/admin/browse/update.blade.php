@@ -79,7 +79,7 @@
                                 <select class="form-control" name="country" required>
                                     <option value="">Choose</option>
                                     @foreach($countries as $country)
-                                        <option value="{{ $country->nicename }}">{{ $country->nicename }}</option>
+                                        <option value="{{ $country->nicename }}" {{ $data['browse']->country == $country->nicename ? 'selected' : '' }} >{{ $country->nicename }}</option>
                                     @endforeach
                                 </select>
                                 {{-- <select class="form-control" name="country" required>
