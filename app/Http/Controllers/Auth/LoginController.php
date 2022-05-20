@@ -66,6 +66,12 @@ class LoginController extends Controller
             else if ($user->user_type == 3)
                 $data = Student::find($user->user_id);
 
+                if($data->civil_status == 'Inactive')
+                auth()->logout();
+                throw ValidationException::withMessages([
+                    $this->username() => ['failed' => 'Your account is not active, please contact the system administrator.'],
+                ]);
+
             if ($data->is_delete != 0) {
                 auth()->logout();
                 throw ValidationException::withMessages([
